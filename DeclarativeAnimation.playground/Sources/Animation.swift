@@ -12,7 +12,16 @@ extension Animation {
     }
     
     public static func resize(to size: CGSize, with duration: TimeInterval = 0.3) -> Animation {
-        return Animation(duration: duration, closure: { $0.bounds.size = size })
+        return Animation(duration: duration) { (view) in
+            let newFrame = CGRect(origin: view.frame.origin, size: size)
+            view.frame = newFrame
+        }
+    }
+    
+    public static func move(to point: CGPoint, with duration: TimeInterval = 0.3) -> Animation {
+        return Animation(duration: duration) { (view) in
+            view.center = point
+        }
     }
 }
 
