@@ -21,7 +21,7 @@ let point = CGPoint(x: 200, y: 200)
 
 animate(
     animationView.animate(.fadeIn(with: 3), .resize(to: size, with: 3)),
-    anotherView.animate(.fadeIn(with: 3), .move(to: point, with: 3))
+    anotherView.animateInParallel(.fadeIn(with: 3), .move(to: point, with: 3))
 )
 
 PlaygroundPage.current.liveView = liveView

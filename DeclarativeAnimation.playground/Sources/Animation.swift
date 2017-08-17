@@ -34,7 +34,7 @@ extension UIView {
         return AnimationToken(view: self, animations: animations, mode: .sequence)
     }
     
-    @discardableResult func animateInParallel(_ animations: Animation...) -> AnimationToken {
+    @discardableResult public func animateInParallel(_ animations: Animation...) -> AnimationToken {
         return animatieInParallel(animations)
     }
     
