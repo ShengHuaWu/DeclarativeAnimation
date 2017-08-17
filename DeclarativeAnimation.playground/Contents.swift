@@ -11,9 +11,18 @@ animationView.backgroundColor = .red
 animationView.alpha = 0
 liveView.addSubview(animationView)
 
+let anotherView = UIView(frame: smallFrame)
+anotherView.backgroundColor = .blue
+anotherView.alpha = 0
+liveView.addSubview(anotherView)
+
 let size = CGSize(width: 200, height: 200)
 let point = CGPoint(x: 200, y: 200)
-//animationView.animate([.fadeIn(with: 3.0), .resize(to: size, with: 3.0)])
-animationView.animatieInParallel([.fadeIn(with: 3.0), .resize(to: size, with: 3.0), .move(to: point, with: 3.0)])
+
+animate([
+    animationView.animate([.fadeIn(with: 3), .resize(to: size, with: 3)]),
+    anotherView.animate([.fadeIn(with: 3), .move(to: point, with: 3)])
+])
+
 
 PlaygroundPage.current.liveView = liveView
