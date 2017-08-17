@@ -19,10 +19,9 @@ liveView.addSubview(anotherView)
 let size = CGSize(width: 200, height: 200)
 let point = CGPoint(x: 200, y: 200)
 
-animate([
-    animationView.animate([.fadeIn(with: 3), .resize(to: size, with: 3)]),
-    anotherView.animate([.fadeIn(with: 3), .move(to: point, with: 3)])
-])
-
+animate(
+    animationView.animate(.fadeIn(with: 3), .resize(to: size, with: 3)),
+    anotherView.animate(.fadeIn(with: 3), .move(to: point, with: 3))
+)
 
 PlaygroundPage.current.liveView = liveView

@@ -41,7 +41,11 @@ public final class AnimationToken {
     }
 }
 
-public func animate(_ tokens: [AnimationToken]) {
+public func animate(_ tokens: AnimationToken...) {
+    animate(tokens)
+}
+
+func animate(_ tokens: [AnimationToken]) {
     guard !tokens.isEmpty else { return }
     
     var tokensCopy = tokens

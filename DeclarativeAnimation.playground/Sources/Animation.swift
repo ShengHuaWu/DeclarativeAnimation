@@ -26,11 +26,19 @@ extension Animation {
 }
 
 extension UIView {
-    @discardableResult public func animate(_ animations: [Animation]) -> AnimationToken {
+    @discardableResult public func animate(_ animations: Animation...) -> AnimationToken {
+        return animate(animations)
+    }
+    
+    func animate(_ animations: [Animation]) -> AnimationToken {
         return AnimationToken(view: self, animations: animations, mode: .sequence)
     }
     
-    @discardableResult public func animatieInParallel(_ animations: [Animation]) -> AnimationToken {
+    @discardableResult func animateInParallel(_ animations: Animation...) -> AnimationToken {
+        return animatieInParallel(animations)
+    }
+    
+    func animatieInParallel(_ animations: [Animation]) -> AnimationToken {
         return AnimationToken(view: self, animations: animations, mode: .parallel)
     }
     
